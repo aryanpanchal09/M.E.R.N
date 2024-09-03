@@ -1,0 +1,28 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>On Click</title>
+        
+    </head>
+
+    <body>
+
+        
+
+        <p id="first">Hi User</p>
+        <button id="change"> Change text</button>
+        <script>
+            document.getElementById("change").onclick = function(){
+                alert("button clicked");
+                document.getElementById("first").innerHTML = "Text is Changed HTML Tags can also be used in it";
+            }
+            /*document.getElementById("change") - will select the particular element on my webpage
+            innerHTML - to change HTML element
+            */
+        </script>
+
+    </body>
+
+</html>
+

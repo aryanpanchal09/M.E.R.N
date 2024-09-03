@@ -1,0 +1,133 @@
+DOM stands for Document Object Model 
+
+UseCase
+. How to make our Webpage Interactive
+. How to change some content Dynamically on a Webpage
+
+HTML Tree Generator -> HTML Extension 
+
+Console - Document --> complete Webpage
+1st Child of the Document/Web Page - HTML Tag
+
+document.firstElementChild.lastElementChild
+body - answer // last child 
+html - answer // first child 
+
+To get the last child from the Webpage / Document
+To get the paragraph 
+document.firstElementChild.lastElementChild.firstElementChild
+<p>paragraph</p>
+
+
+So that we don't have to write this much line of code again and again that's why we are storing it in a variable
+var a = document.firstElementChild.lastElementChild.firstElementChild;
+undefined
+a.innerHTML = "good bye";
+"good bye" -> Content website change
+
+Naming Conventions for Variables 
+
+Keywords that can't be used -> break boolean int //name correct
+Should not start with number but can start with symbols such as _ //2name incorrect
+Variable are Case Sensitive //_name correct
+
+String concat
+
+var x = string / decimal / integer / boolean / 
+
+String = collection of characters 
+
+var x = "string";
+x
+var y = "hello";
+var z = "world";
+console.log(y + z);
+> hello world 
+
+Length Property in Strings 
+
+var arr2 = "findouthowmanycharactersarethereinthisline";
+
+arr2.length;
+
+// Program to get Length of Array Given by User
+
+var arr = prompt();
+
+arr.length;
+
+# Slicing in Strings 
+
+var pc = "Random String";
+pc // Print the Content
+pc.slice(0,4); // always start from 0
+
+# Changing Case of String 
+
+var c = "This is c String"
+c
+c.toUpperCase();
+var d = c.toUpperCase();
+d.toLowerCase();
+
+# Types of Operator in Javascript
+
+Operator -> With the help of Operator we perform Operations
+2 + 2 = 4 -> 2 + 2 is Operator and 4 is Operation
+
+Types 
+. Arithmetic 
++
+-
+*
+/
+%  - Modulus (Divison Remainder)
+++ - Increment
+-- - Decrement
+
+
+. Comparison
+Used for Checking Condition alternative to if else statement 
+
+
+. Logical  * Most Important 
+|| (OR) -> result = a || b -> Only One Condition needs to be True
+&& (AND) -> Both the Condition needs to be true otherwise it will be False 
+  ++ = +
+  -- = -
+  -+ = -
+  -- = -
+
+. Assignment
+=  - x = y
++= - x = x + y
+-= - x = x - y
+*= - x = x * y
+/= - x = x / y
+%= - x = x % y
+**= - x = x ** y
+
+. Conditional
+
+// Notebook Javascript Console Functions 
+
+Object - real world entity that has some Property and Behaviour Ex Car
+Class - Blueprint
+Properties - Car Properties
+Method - car.start()
+
+var person = {
+  firstName: "How",
+  lastName: "Do You Do",
+  age: 50,
+  eyecolor: "blue"
+};
+person["eyecolor]
+
+Method Declare 
+
+  fullName: function(){
+    return this.firstName + " " + this.lastName;
+  }
+
+  person.fullName();

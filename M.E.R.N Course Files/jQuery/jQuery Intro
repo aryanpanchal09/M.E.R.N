@@ -1,0 +1,13 @@
+JavaScript - Use to make Interactive Website
+Javascript Framework Make things Simple that are Difficult in JavaScript
+
+Drag Element 
+Drop Element 
+Effects 
+Widgets - To Make Website Interactive
+
+Embedded Jquery - Google Library 
+
+2 ways to include Jquery
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+jquery.js compressed file 

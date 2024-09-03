@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Number Guessing Game</title>
+    </head> 
+    <body> 
+        <p>Enter Number Range 1 to 5 To Won The Game: <input id="pc" type="text"></p>
+        <button id="add">Submit</button>
+        <script>
+            // <input id="inp type="text">
+            var useranswer = 0; // declared variable having value 0 in it
+            document.getElementById("add").onclick = function(){
+            useranswer = document.getElementById("pc").value;
+            // alert(useranswer);                
+            var answer = Math.floor(Math.random() * 5) + 1;
+            console.log(answer);
+            if(useranswer == answer){
+                alert("You have Won the Match !!")
+            }
+            else{
+                alert("You have Lost the Match !! Better Luck Next Time")
+            }
+            }
+            // Math.floor(Math.random * 10) + 1; Math.floor will round off number so that decimal no will not come
+        </script>
+    </body>
+</html>

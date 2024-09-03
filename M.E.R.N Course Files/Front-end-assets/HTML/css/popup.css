@@ -1,0 +1,211 @@
+.popup-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.popup-grid > .title-left {
+    margin: 10px;
+}
+
+.popup-grid > .title-left > .ai-generate-title{
+    display: flex;
+    gap: 15px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+
+.popup-grid > .title-left > .ai-generate-title > span {
+    font-weight: 600;
+
+}
+
+.popup-grid > .title-left > .ai-generate-title > i {
+    color: #2a41e8;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-grid > .title-left > .default-data{
+    margin: 20px 0;
+}
+
+.popup-grid > .title-left > .ai-generate-title > i:hover {
+    color: white;
+    background-color: #2a41e8;
+}
+
+
+.popup-grid > .title-left > .default-data {
+    margin: 10px 0 20px;
+}
+
+
+.popup-grid > .scroll-input-popup{
+    height: 400px;
+    overflow-y: auto;
+}
+
+.popup-grid > .title-right{
+    margin: 0 20px;
+}
+
+.popup-grid > .title-right > .right-side-heading{
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+.last-eliment-input-popup{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+
+
+/* file right side of the save button in header */
+
+.mypopups {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 400px;
+
+  }
+
+  .mypopups > button{
+    width: 70px;
+    border-radius: 5px;
+    margin: 15px 0  ;
+
+  }
+
+.contentpopup{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    width: 75%;
+    height: 550px;
+    overflow: auto;
+
+}
+
+.contentpopup > .content-traffic > p{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+.contentpopup >  .write-best-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px 16px;
+}
+
+.contentpopup >  .write-best-content > .write-best-content-p{
+    width: 275px;
+    display: flex;
+    align-items: center;
+    
+
+}
+
+.contentpopup >  .write-best-content > input{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentpopup >  .write-best-content > h5{
+    width: 220px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    background: #2a41e8;
+}
+
+.contentpopup > .competetive-model{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 25px 150px;
+}
+
+.contentpopup > button{
+    width: 75px;
+    border-radius: 5px;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* nav-popup */
+
+.pop-icon {
+    cursor: pointer; /* Add cursor for click indication */
+  }
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.popup.show {
+    display: block;
+}
+
+
+
+.popup-revision {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.savedate{
+    color: #2a41e8;
+    margin-top: 10px;
+}

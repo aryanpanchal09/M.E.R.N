@@ -1,0 +1,22 @@
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>Regular Expression</title>
+        <script src="jquery.js"></script>
+        
+    </head>
+    <body>
+        <!-- Value Stored Inside the Regex Variable is Present in this str or not -->
+        <!-- If the Value is Present it will be stored in Result Variable  -->
+        <!-- If the Value is not Present It will return us a Null Object -->
+        <!-- If same word is there in multiple occurences then add g Alphabet which stands for global flag -->
+        <script>
+            var str="This is Regular Expression which is very Important";
+            var regex = /regular/; // It's Case Sensitive
+            var regex = /regular/i; // i Alphabet it removes the case sensitive 
+            var regex = /is/g; // This - is consider 
+            var result = str.match(regex);
+            alert(result);
+        </script>
+    </body>
+</html>

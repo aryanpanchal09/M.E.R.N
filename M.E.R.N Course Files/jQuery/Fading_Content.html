@@ -1,0 +1,36 @@
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>Fadeout-Content</title>
+        <script src="jquery.js"></script>
+        <style>
+            #para{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Paragraph has been fadedout
+        Fadedout Function has been called and Alert Message is been shown -->
+        <p id="para">This Paragraph Should Fade Out </p>
+
+        <button>Fade Content</button>
+
+        <script>
+            // $("button").click(function(){
+            //     $("p").fadeOut("slow"); // fadeOut in built function 
+            // });
+
+            // $("button").click(function(){
+            //     $("p").fadeOut(function(){
+            //         alert("Content has Faded Out");
+            //     });
+            // });
+
+            $("button").click(function(){
+                $("p").fadeIn(); //$("$para") can also be used
+            });
+        </script>
+
+    </body>
+</html>

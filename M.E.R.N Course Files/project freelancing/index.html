@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="style.css">
+
+
+	<script src="https://kit.fontawesome.com/7748f3a2f4.js" crossorigin="anonymous"></script>
+
+
+
+	<title>Text Editor</title>
+</head>
+<body onload="enableEditMode();">
+
+	<div class="outer">
+		<header>
+			<div class="header">
+				<div class="left-side">
+					<p>Content editor</p>
+				</div>
+				<div class="right-side">
+						<button class="save">S A V E</button>
+						<i class="fa-regular fa-folder-open"></i>
+						<i style="color: gray;" class="fa-regular
+						fa-circle-check"></i>
+				</div>
+			</div>
+		</header>
+		<hr>
+
+		<div class="main" >
+			<div class="text-editor">
+				<div class="container">
+					<div class="toolbar">
+						<div class="title">
+							<label for="input">Title</label>
+							<input type="text" name="title" id="title">
+						</div>
+						<div class="toolbar-buttons">
+							<button onclick="execCmd('bold');"><i class="fa fa-bold"></i></button>
+							<button onclick="execCmd('italic');"><i class="fa fa-italic"></i></button>
+							<button onclick="execCmd('underline');"><i class="fa fa-underline"></i></button>
+							<button onclick="execCmd('strikeThrough');"><i class="fa fa-strikethrough"></i></button>
+							<button onclick="execCmd('justifyLeft');"><i class="fa fa-align-left"></i></button>
+							<button onclick="execCmd('justifyCenter');"><i class="fa fa-align-center"></i></button>
+							<button onclick="execCmd('justifyRight');"><i class="fa fa-align-right"></i></button>
+							<button onclick="execCmd('justifyFull');"><i class="fa fa-align-justify"></i></button>
+							<button onclick="execCmd('cut');"><i class="fa fa-cut"></i></button>
+							<button onclick="execCmd('copy');"><i class="fa fa-copy"></i></button>
+							<button onclick="execCmd('indent');"><i class="fa fa-indent"></i></button>
+							<button onclick="execCmd('outdent');"><i class="fa fa-dedent"></i></button>
+							<button onclick="execCmd('subscript');"><i class="fa fa-subscript"></i></button>
+							<button onclick="execCmd('superscript');"><i class="fa fa-superscript"></i></button>
+							<button onclick="execCmd('undo');"><i class="fa fa-undo"></i></button>
+							<button onclick="execCmd('redo');"><i class="fa fa-repeat"></i></button>
+							<button onclick="execCmd('insertUnorderedList');"><i class="fa fa-list-ul"></i></button>
+							<button onclick="execCmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
+							<button onclick="execCmd('insertParagraph');"><i class="fa fa-paragraph"></i></button>
+
+							<select onchange="execCommandWithArg('formatBlock', this.value);">
+								<option value="" selected="">Heading</option>
+								<option value="H1">H1</option>
+								<option value="H1">H2</option>
+								<option value="H1">H3</option>
+								<option value="H1">H4</option>
+								<option value="H1">H5</option>
+								<option value="H1">H6</option>
+							</select>
+							<button onclick="execCmd('insertHorizontalRule');">HR</button>
+							<button onclick="execCommandWithArg('createLink', prompt('Enter a URL', 'http://'));"><i class="fa fa-link"></i></button>
+							<button onclick="execCmd('unlink');"><i class="fa fa-unlink"></i></button>
+							<button onclick="toggleSource();"><i class="fa fa-code"></i></button>
+							<button onclick="toggleEdit();">Toggle Edit</button>
+							<select onchange="execCommandWithArg('fontName', this.value);">
+								<option value="Arial">Arial</option>
+								<option value="Comic Sans MS">Comic Sans MS</option>
+								<option value="Courier">Courier</option>
+								<option value="Georgia">Georgia</option>
+								<option value="Tahoma">Tahoma</option>
+								<option value="Times New Roman">Times New Roman</option>
+								<option value="Verdana">Verdana</option>
+							</select>
+							<select onchange="execCommandWithArg('fontSize', this.value);">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+							</select>
+							Fore Color: <input type="color" onchange="execCommandWithArg('foreColor', this.value);">
+							BackGround: <input type="color" onchange="execCommandWithArg('hiliteColor', this.value);">
+							<button onclick="execCommandWithArg('insertImage', prompt('Enter the image URL', ));"><i class="fa fa-file-image-o"></i></button>
+							<button onclick="execCmd('SelectAll');">Select all</button>
+
+							apply tooltip from bootstrap
+
+
+
+						</div>
+						<iframe name="richTextField"  src="" frameborder="0"></iframe>
+					</div>
+				</div> 
+			</div>
+
+
+			<div class="analysis">
+					<div class="meter-section">
+						<i class="fa-solid fa-trophy">49</i>
+						<div class="wrapper">
+						  <div class="gauge">
+							<div class="slice-colors">
+							  <div class="st slice-item"></div>
+							  <div class="st slice-item"></div>
+							  <div class="st slice-item"></div>
+							  <!-- <div class="st slice-item"></div> -->
+							  <!-- <div class="st slice-item"></div> -->
+							</div>
+							<div class="needle"></div>
+							<div class="gauge-center"></div>
+							<div class="trophy">
+							
+
+							</div>
+						  </div>
+						</div>
+						<div class="range-head-1">
+							<div  class="range-head-0">
+								<div class="range-head">	
+									<p>Title 0%</p>
+									<div class="range-container">
+										<div class="range-highlight"></div>
+									</div>
+								</div>
+								<div class="range-head">	
+									<p>Title 0%</p>
+									<div class="range-container">
+										<div class="range-highlight"></div>
+									</div>
+								</div>
+							</div>
+							<div  class="range-head-0">
+								<div class="range-head">	
+									<p>Title 0%</p>
+									<div class="range-container">
+										<div class="range-highlight"></div>
+									</div>
+								</div>
+								<div class="range-head">	
+									<p>Title 0%</p>
+									<div class="range-container">
+										<div class="range-highlight"></div>
+									</div>
+								</div>
+							</div>
+						</div>		
+					</div>
+					<div class="content-suggestion">
+						<nav>
+							<button><i class="fa-solid fa-quote-left"></i>&nbsp;&nbsp;Terms</button>
+							<button id="test-click"><i class="fa-regular fa-lightbulb"></i>&nbsp;&nbsp;Outline</button>
+							<button id="ai-writing"><i class="fa-solid fa-pen-nib"></i>&nbsp;&nbsp;AI-writing</button>
+							<button><i class="fa-solid fa-photo-film"></i>&nbsp;&nbsp;Media</button>
+							<button class="sliders"><i class="fa-solid fa-sliders"></i></button>
+						</nav>
+					</div>
+					
+					<div class="nav-tabs" id="nav-tabs" style="display: none;">
+						<nav>
+							<p>Standard</p>
+							<p>Advanced</p>
+							<p><i class="fa-solid fa-user"></i>User</p>
+							<p style="width: 130px;"><i class="fa-solid fa-rocket"></i>&nbsp;New Template</p>
+							<p style="width: 130px;"><i class="fa-solid fa-plus"></i>&nbsp;Custom Designer</p>
+						</nav>
+					</div>
+					
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="script.js"></script>
+	<script>
+		function togglePopup() {
+    		var popup = document.getElementById("popup");
+    		popup.style.display = popup.style.display === "none" ? "block" : "none";
+  		}
+	</script>
+
+
+</body>
+</html>

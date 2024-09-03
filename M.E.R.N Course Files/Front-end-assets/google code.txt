@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Text Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .navbar span {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+            user-select: none;
+        }
+        .navbar span:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        #editor {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            overflow-y: auto;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        .popup input,
+        .popup textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .popup button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .popup button:hover {
+            background-color: #45a049;
+        }
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        #wordCountPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it's above other content */
+        }
+        #wordCountPopup table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #wordCountPopup th,
+        #wordCountPopup td {
+            text-align: left;
+            padding: 8px;
+        }
+        #wordCountPopup th {
+            background-color: #f0f0f0;
+        }
+        #wordCountPopup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .align-toolbar {
+            display: flex;
+            margin-left: auto; /* Push to the right */
+        }
+        .align-toolbar button {
+            background-color: transparent;
+            border: none;
+            color: #f2f2f2;
+            padding: 10px;
+            cursor: pointer;
+            margin-right: 5px; /* Add space between buttons */
+        }
+        .align-toolbar button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <span onclick="execCmd('undo')">⟲ Undo</span> <!-- Undo Icon -->
+    <span onclick="execCmd('redo')">⟳ Redo</span> <!-- Redo Icon -->
+    <span onclick="execCmd('formatBlock', 'H1')">H1</span>
+    <span onclick="execCmd('formatBlock', 'H2')">H2</span>
+    <span onclick="execCmd('formatBlock', 'H3')">H3</span>
+    <span onclick="execCmd('formatBlock', 'H4')">H4</span>
+    <span onclick="execCmd('bold')">B</span>
+    <span onclick="execCmd('italic')">I</span>
+    <span onclick="execCmd('underline')">U</span>
+    <span onclick="execCmd('insertOrderedList')">1. Numbers</span> <!-- Ordered List Icon -->
+    <span onclick="execCmd('insertUnorderedList')">• Bullets</span> <!-- Unordered List Icon -->
+    <span onclick="execCmd('createLink', promptForLink())"> Link</span> <!-- Link Icon -->
+    <span onclick="execCmd('formatBlock', 'blockquote')">"Quote"</span> <!-- Quote Icon -->
+    <span onclick="openImagePopup()"> Image</span> <!-- Image Icon -->
+    <span onclick="insertTable()">◽ Table</span> <!-- Table Icon -->
+    <span onclick="openWordCountPopup()">Word Count</span> <!-- Word Count Icon -->
+
+    <!-- Alignment Toolbar -->
+    <div class="align-toolbar">
+        <button onclick="execCmd('justifyLeft')">Align Left</button>
+        <button onclick="execCmd('justifyCenter')">Align Center</button>
+        <button onclick="execCmd('justifyRight')">Align Right</button>
+        <button onclick="execCmd('justifyFull')">Align Justify</button>
+    </div>
+</div>
+
+<div id="editor" contenteditable="true">
+    <!-- Your content will go here -->
+</div>
+
+<div id="imagePopup" class="popup">
+    <span class="close" onclick="closeImagePopup()">×</span>
+    <h2>Insert/Edit Image</h2>
+    <label for="source">Source</label>
+    <input type="text" id="source" placeholder="Image URL">
+    <label for="alt">Alternative description</label>
+    <textarea id="alt" placeholder="Describe the image for accessibility"></textarea>
+    <div>
+        <label for="width">Width</label>
+        <input type="number" id="width" placeholder="Width (optional)">
+        <label for="height">Height</label>
+        <input type="number" id="height" placeholder="Height (optional)">
+    </div>
+    <label for="caption">Caption</label>
+    <input type="text" id="caption" placeholder="Image caption (optional)">
+    <input type="checkbox" id="showCaption">
+    <label for="showCaption">Show caption</label>
+    <button onclick="insertImage()">Save</button>
+    <button onclick="closeImagePopup()">Cancel</button>
+</div>
+
+<div id="wordCountPopup" class="popup">
+    <span class="close" onclick="closeWordCountPopup()">×</span>
+    <h2>Word Count</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Count</th>
+                <th>Document</th>
+                <th>Selection</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Words</td>
+                <td id="wordCountDocument">0</td>
+                <td id="wordCountSelection">0</td>
+            </tr>
+            <tr>
+                <td>Characters (no spaces)</td>
+                <td id="charCountDocument">0</td>
+                <td id="charCountSelection">0</td>
+            </tr>
+            <tr>
+                <td>Characters</td>
+                <td id="charCountWithSpacesDocument">0</td>
+                <td id="charCountWithSpacesSelection">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="closeWordCountPopup()">Close</button>
+</div>
+
+<script>
+    function execCmd(command, value = null) {
+        if (command === 'createLink') {
+            value = prompt('Enter the URL:', 'http://');
+            if (!value) return; // Exit if no URL is provided
+        }
+        document.execCommand(command, false, value);
+    }
+
+    function promptForLink() {
+        const url = prompt('Enter the URL:', 'http://');
+        return url ? url : 'http://';
+    }
+
+    function openImagePopup() {
+        document.getElementById('imagePopup').style.display = 'block';
+    }
+
+    function closeImagePopup() {
+        document.getElementById('imagePopup').style.display = 'none';
+    }
+
+    function insertImage() {
+        const source = document.getElementById('source').value;
+        const alt = document.getElementById('alt').value;
+        const width = document.getElementById('width').value;
+        const height = document.getElementById('height').value;
+        const caption = document.getElementById('caption').value;
+        const showCaption = document.getElementById('showCaption').checked;
+
+        let imgHtml = `<img src="${source}" alt="${alt}"`;
+        if (width) imgHtml += ` width="${width}"`;
+        if (height) imgHtml += ` height="${height}"`;
+        imgHtml += `>`;
+
+        if (showCaption) {
+            imgHtml = `<p>${imgHtml} <span class="caption">${caption}</span></p>`;
+        }
+
+        document.execCommand('insertHTML', false, imgHtml);
+        closeImagePopup();
+    }
+
+    function insertTable() {
+        // Insert a simple table with 2 rows and 2 columns
+        const tableHTML = '<table><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table>';
+        document.execCommand('insertHTML', false, tableHTML);
+    }
+
+    function openWordCountPopup() {
+        updateWordCount(); // Update the word count before opening the popup
+        document.getElementById('wordCountPopup').style.display = 'block';
+    }
+
+    function closeWordCountPopup() {
+        document.getElementById('wordCountPopup').style.display = 'none';
+    }
+
+    function updateWordCount() {
+        const editorContent = document.getElementById('editor').textContent;
+        const editorSelection = window.getSelection();
+        const selectionText = editorSelection.toString();
+
+        // Word count
+        const wordCountDocument = editorContent.trim().split(/\s+/).length;
+        const wordCountSelection = selectionText.trim().split(/\s+/).length;
+
+        // Character count (no spaces)
+        const charCountDocument = editorContent.replace(/\s/g, '').length;
+        const charCountSelection = selectionText.replace(/\s/g, '').length;
+
+        // Character count (with spaces)
+        const charCountWithSpacesDocument = editorContent.length;
+        const charCountWithSpacesSelection = selectionText.length;
+
+        // Update the display elements
+        document.getElementById('wordCountDocument').textContent = wordCountDocument;
+        document.getElementById('wordCountSelection').textContent = wordCountSelection;
+        document.getElementById('charCountDocument').textContent = charCountDocument;
+        document.getElementById('charCountSelection').textContent = charCountSelection;
+        document.getElementById('charCountWithSpacesDocument').textContent = charCountWithSpacesDocument;
+        document.getElementById('charCountWithSpacesSelection').textContent = charCountWithSpacesSelection;
+    }
+
+    // Call updateWordCount() when the editor content changes
+    document.getElementById('editor').addEventListener('input', updateWordCount);
+
+    // Call updateWordCount() when the selection changes
+    window.getSelection().addEventListener('change', updateWordCount);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>For Loop</title>
+    </head>
+    <body>
+
+        <p id="para1"></p>
+        <script>
+            var tweets=["Good Morning","Having Tea","All the Best"];
+            var j = "";
+            for(var i = 0; i < 3; i++){
+                j = j + " " + tweets[i]
+                // alert(i);
+            } //counter variable var i 
+            // conditional statement till the for loop will be executed 
+            // Last Statement what will happen to I till the for loop is executed i=i+1
+            document.getElementById("para1").innerHTML = j;
+        </script>
+    </body>
+</html>

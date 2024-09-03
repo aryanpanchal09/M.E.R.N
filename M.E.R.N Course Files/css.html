@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>All About CSS</title>
+        <link rel="stylesheet" href="index.css">
+        <style>
+            .p1{
+                color: burlywood;
+                font-style: italic;
+            }
+            h1{
+                color: palevioletred;
+                font-size: 20px;
+            }
+            .pc{
+                color: blueviolet;
+                font-size: 21px;
+            }
+            #pc2{
+                color: black;
+                font-size: 20px;
+                font: 1em sans-serif;
+            }
+            #pc3{
+                font-size: 20px;
+                font: 1em sans-serif;
+                background-color: beige;
+                width: 600px;
+                float: right;
+            }
+            #pc4{
+                float: left;
+                font-size: 40px;
+                width: 600px;
+                background-color: beige;
+
+            }
+            .pc5{
+                clear: both;
+            }
+            #pc6{
+                position: relative;
+                left: 10px;
+                top: 50px;
+                z-index: 1;
+            }
+            #pc7{
+                position: absolute;
+                left: 10px;
+                top: 50px;
+                opacity: 0;
+                z-index: 4;
+            }
+
+            .pc8{
+                background-color: orange;
+                border-radius: 5px 10px 15px 50px;
+            }
+            .pc9{
+                border: 30px dotted black;
+                background-color: blue;
+            }
+            .pc10{
+                border-style: dotted solid dashed ridge;
+                border-width: 20px 30px 40px 50px;
+                border-left: ; 
+                background-color: green;
+            }
+            .common{
+                height: 100px;
+                width: 100px;
+                margin: 40px;
+                float: left;
+            }
+            .pc11{
+                font-family: 'Roboto', sans-serif;
+            }
+            .pc12{
+                font-weight: bold;
+            }
+            .pc13{
+                font-style: italic;
+            }
+            .pc15{
+                text-decoration: underline;
+            }
+            .text{
+                text-align: justify;        
+            }
+            .section{
+                height: 150px;
+                width: 350px;
+                background-color: burlywood;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+            a{
+                text-decoration: none;
+            }
+            a:visited{
+                color: gray;
+            }
+            ul{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                height: 200px;
+                border: 1px solid red;
+                display: flex;
+                flex-direction: column;
+                flex-direction: column-reverse;
+                flex-direction: row;
+                flex-direction: row-reverse;
+                flex-wrap: wrap;
+                justify-content: center;
+                justify-content: flex-end;
+                justify-content: flex-start;
+                justify-content: space-between;
+                justify-content: space-around; 
+                align-items: flex-end;
+                align-items: flex-start;
+                align-items: stretch;           
+            }
+            li{
+                border: 1px solid black;
+                margin: 0.5em;
+                padding: 0.5em;
+            }
+            #pc17{
+                font: 1em sans-serif;
+                font-size: 18px;  
+                color: blueviolet;
+                
+            }
+            .pc18{
+                order: 1;
+            }
+            .pc29{
+                order: 2;
+            }
+
+
+        </style><!-- For Internal CSS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <p style="font-size: 30px;">Inline CSS</p>
+        <h1 style="color: royalblue; font-size: 20px;">. Css is Cool Thala for a Reason</h1>
+        <p style="color: grey;">. Learning & Solitude</p>
+        <hr>
+
+        <p1 style="font-size: 30px;">Internal CSS</p1>
+        <h1>. Fresh</h1>
+        <p>. There are 2 types for giving Class Styling to particular Paragraph.
+            First is giving the paragraph p Sequential number just after the p tag like p1
+            Second is by assigning class to paragraph
+            <span class="pc">Same Class can be used in multiple paragraph</span> 
+            Also to apply the other class effect in different class add space and then classname
+        </p>
+
+        <p>. In Internal css instead of class we can also use ID's
+            Unlike in Classes where we use .(dot) before classname, In Id we use # symbol before id in style attribute
+        </p>
+        <p class="pc p1">. I want to give this Paragraph Violet Color</p>
+        <p id="pc2">. This Styling is done with the help of Id's</p>
+        
+        <div id="pc3">
+            <p>. Here we are using Div</p>
+            <p>. It divides the page into different segment</p>
+        </div>
+
+        <p id="pc4">Floating</p>
+
+        <p class="pc5">Not Floating we will use Clear function</p>
+        <hr>
+        <p style="font-size: 30px;">External CSS</p>
+
+
+        <p id="pc6">Position</p>
+
+        <p>Z index</p>
+        <br>
+
+        <hr>
+
+        <p>Border</p>
+        <div class="pc8 common">
+            
+        </div>
+        <div class="pc9 common">
+
+        </div>
+        <div class="pc10 common">
+
+        </div>
+
+        <br>
+        <hr>
+
+        <p class="pc11">Font Text</p>
+
+        <hr>
+
+        <p><h2>Styling Text</h2></p>
+        
+        <p class="pc12">This is Bold Line</p>
+        <p class="pc13">This is Italic Line <span class="bold">And This is Bold Line in Same Paragraph</span></p>
+        <p class="pc14">This is Underline Line</p>
+
+        <hr>
+
+        <h2>Text Alignment</h2>
+
+        <div class="section">
+            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ex nihil quaerat placeat distinctio omnis, nostrum perferendis dignissimos similique velit laborum sunt deserunt, commodi aut. Eos illo tempora sit corporis.</p>
+        </div>
+
+        <hr>
+
+        <h2>Link Decoration</h2>
+
+        <p><a class="pc16" href="https://upskill.tutedude.com/course/lecture-mernstack">Click here to open Tubebuddy</a></p>
+        <p><a href="https://www.youtube.com/">Click here to Open Youtube</a></p>
+        
+        
+        <hr>
+
+        <h2>Flexbox HTML</h2>
+
+        <p id="pc17">Flexbox 6 Properties</p>
+
+        <ul>
+            <li class="pc18">1st flex direction property</li> 
+            <li class="pc19">2nd flex wrap</li>
+            <li class="pc20">3rd flex flow</li>
+            <li>4th justify content</li>
+            <li>5th align items</li>
+            <li>6th align content</li>
+        </ul>
+
+        <hr>
+
+        <p class="pc21">External CSS</p>
+
+
+    </body> 
+</html> 
+
+<!-- 
+
+-->
