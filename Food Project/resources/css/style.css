@@ -4,13 +4,16 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body
+{
   background-color: #ffffff;
   color: #555;
   font-family: Lato, sans-serif;
   font-weight: 300;
   font-size: 20px;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 .row {
@@ -67,7 +70,8 @@ input[type=submit]{
 }
 
 .btn-ghost:visited,
-.btn-ghost:link{
+.btn-ghost:link,
+input[type=submit]{
   color: #e67e22;
   border: 1px solid #e67e22;
 }
@@ -440,4 +444,56 @@ textarea{
 }
 input[type=checkbox]{
   margin: 10px 5px 10px 0px;
+}
+footer{
+  background-color: #333;
+  font-size: 80%;
+  padding: 50px;
+}
+.footer-nav{
+  list-style: none;
+  float: left;
+}
+.social-links{
+  list-style: none;
+  float: right;
+}
+.footer-nav li,
+.social-links li{
+  display: inline-block;
+  margin-right: 20px;
+} 
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited{
+  text-decoration: none;
+  border: 0;
+  color: #888;
+}
+.footer-nav li a:hover,
+.footer-nav li a:hover{
+  color: #ddd;
+}
+footer p{
+  color: #888;
+  text-align: center;
+  font-size: 90%;
+  margin-top: 20px;
+}
+.fb:hover{
+  color: #3b5998;
+}
+.google:hover{
+  color: #dd4b39;
+}
+.twitter:hover{
+  color: #00aced;
+}
+.insta:hover{
+  color: #517Fa4;
+}
+.social-links li a:link,
+.social-links li a:visited{
+  font-size: 160%;
 }

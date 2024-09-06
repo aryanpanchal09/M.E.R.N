@@ -1,0 +1,10 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+It's used for increasing text for reading for user 
+
+Media Query - To make website responsive
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
