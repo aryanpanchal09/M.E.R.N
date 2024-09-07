@@ -1,0 +1,12 @@
+Backend 
+-------
+Server - It has to be available 24X7
+Database - It will store some permament data for our website to run
+
+
+Example 
+-------
+Restaurant Mechanism
+Sitting Area - Client making request 
+Kitchen - Grab the response and collect data from the Database
+Storage Area - Data Store 
