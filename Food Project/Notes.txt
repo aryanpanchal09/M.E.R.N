@@ -8,3 +8,56 @@ Media Query - To make website responsive
     background-color: lightblue;
   }
 }
+
+Animation 
+---------
+
+Scrolling Effect 
+----------------
+Anchor tag id provide where we want the user to redirect but it doesn't scroll 
+
+<li><a href="#id">Food delivery</a></li>
+
+Scrolling Effect associated with the button we get the code from w3school scroll smooth
+<script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+    
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+    
+          // Store hash
+          var hash = this.hash;
+    
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+    
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+</script>
+
+AOS - Animation on Scroll
+-------------------------
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+<script>
+  AOS.init();
+</script>
+
+Adding this from Git-Hub
+
+data-aos="fade-in" data-aos-duration="2000" - for fade in animation just mention it in section 
+<section class="section-steps" id="hiw" data-aos="fade-in" data-aos-duration="2000">
+
+Zoom-in effect : <div data-aos="zoom-in" data-aos-duration="4000">
