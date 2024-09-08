@@ -3,10 +3,56 @@ Backend
 Server - It has to be available 24X7
 Database - It will store some permament data for our website to run
 
-
 Example 
 -------
 Restaurant Mechanism
 Sitting Area - Client making request 
 Kitchen - Grab the response and collect data from the Database
 Storage Area - Data Store 
+
+NodeJs 
+------
+Javascript Runtime Built on Chrome's V8 JavaScript engine 
+We can get access to the user computer which we couldn't do with JS it's done with NodeJs
+NodeJs is used to build desktop application
+
+REPL
+----
+Read Evaluate Print Loop 
+
+CMD
+---
+node 
+console.log("Hello);
+"String1" + "String2"
+Ctrl + C (2) - to close the node
+
+NPM
+---
+Neural Political Machine - npmjs.com
+Before starting project create a package.json file
+npm init
+npm install superheroes - module use from npmjs website
+
+To run node app.js-(file name) - Ctrl + Alt + N
+
+Node.js File System Module 
+--------------------------
+To interact with User computer
+
+Example : To rename a particular file
+var fs = require('fs');
+
+fs.rename('index.txt', 'myrenamedfile.txt', function (err) {
+  if (err) throw err;
+  console.log('File Renamed!');
+});
+
+When changes and again run it will give an error 
+{
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'rename',
+  path: 'D:\\Coding Languages\\M.E.R.N\\NodeJs\\index.txt',
+  dest: 'D:\\Coding Languages\\M.E.R.N\\NodeJs\\myrenamedfile.txt'
+}
