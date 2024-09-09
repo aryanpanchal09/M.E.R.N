@@ -1,0 +1,18 @@
+What is the use of Post request?
+                   ------------- 
+When we want to fetch the data that is embedded by the user inside the webpage we use Post request
+                --------------                         -----------------------    
+
+npm init
+npm i express
+npm i body-parser
+
+const express = require('express'); - import with refObj
+const bodyParser = require('body-parser'); - - import with refObj
+const app = express(); - to access all the function of expressFramework
+app.use(express.urlencoded({extended: true})); - to get the user data
+
+app.post("/",function(req,res){ - we are getting the user data
+    var n1 = req.body.num1 - num1 name - req obj body obj num1 obj value store n1
+    var n1 = Number(req.body.num1); - Now we typecasted the whole obj to store our value in Integer format
+});

@@ -23,3 +23,12 @@ app.listen(port, () => { - () callback function  - function()
 })
 
 To Stop the server - Ctrl + C * 2(twice)
+Every application has it's own port number on which it's running
+localhost - own machine 
+3000 - port number
+
+To get some response from the server we are going to use get
+/ - by default will take you to the home page
+app.get("/", function(req, res){ - default parameters which we have to give 
+  res.send('Hello World!'); - by default function 
+})

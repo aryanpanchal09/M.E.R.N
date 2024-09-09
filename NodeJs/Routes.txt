@@ -1,0 +1,13 @@
+When clicking on different different elements of website the url changes 
+User can access multiple pages of a website with the help of Routes
+
+app.get("/about", function(req, res){
+  res.send('About Us!');
+})
+
+localhost:3000/about - About us will be accessed
+
+res.send - User screen display
+
+(__dirname) - D:\Coding Languages\M.E.R.N\NodeJs\Server\index.html
+If you don't want to write the full path
