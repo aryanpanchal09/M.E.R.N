@@ -1,0 +1,39 @@
+API - Application Programming Interface
+---------------------------------------
+We the help of API we can access the information available on other website and we can embedded in our Website
+
+4 Functionalities
+-----------------
+1.End Point - URL through which we can access any API 
+2.Paths - Extra Inf which we add to our URL
+3.Parameter - Filter Out particular action
+4.Authenticator - Most Imp - Verify & Check all sorts of request and then the response is generated
+
+Ex - kanye.rest - https://api.kanye.rest - url website access
+
+Ex - Jokeapi - diff diff Parameter available for the Jokeapi
+
+JS - Key & Value
+
+https://v2.jokeapi.dev/joke/Any
+https://v2.jokeapi.dev/joke/Any?contains=Programming
+
+Response will be in JSON Object
+{
+    "error": false,
+    "category": "Programming",
+    "type": "twopart",
+    "setup": "Why are modern programming languages so materialistic?",
+    "delivery": "Because they are object-oriented.",
+    "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+    },
+    "id": 21,
+    "safe": true,
+    "lang": "en"
+}
