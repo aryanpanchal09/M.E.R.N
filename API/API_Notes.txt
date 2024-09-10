@@ -37,3 +37,61 @@ Response will be in JSON Object
     "safe": true,
     "lang": "en"
 }
+
+Html Project
+------------
+i - icon tag ex - <i class = "fa fa-map-marker">
+button onClick="window.location.reload()" - reload function onClick button 
+
+.card - By this code we gave it a border with some white flashy background
+{
+    border-radius: 50px;
+    background: #343434;
+    box-shadow: 5px 5px 10px #191b1b, -5px -5px 10px #595959;
+}
+
+body - we just align it to the center providing a background
+{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins";
+    color: #fff;
+    background: #343434;
+}
+
+button.refresh
+{
+    display: block;
+    width: 100px;
+    margin: 10px auto; - to centralize the button
+}
+
+button.refresh:hover - hover effect color change
+{
+    box-shadow: inset 10px 4px 10px #252525, inset 5px 5px 18px #4a4a4a;
+}
+
+var request = new XMLHttpRequest() - we can access this url
+ link = "https://api.openweathermap.org/data/2.5/weather?q=ahmedabad&appid=930fe1e0169727c8a9bbedaa0c650b07";
+
+        request.open('GET',link,true); - link open
+        request.onload = function() - if open then perform this function
+        {
+            
+        }
+
+request.send(); - to request to the particular link
+
+request.onload = function()
+    {
+        var obj = JSON.parse(this.response);
+        console.log(obj);
+        document.getElementById('weather').innerHTML = obj.weather[0].description; - weather
+        document.getElementById('location').innerHTML = obj.name; - city name
+        document.getElementById('temp').innerHTML =Math.round(obj.main.temp - 273.15); - number display big round figure
+        document.getElementById('icon').src = "https://openweathermap.org/img/w/" + obj.weather[0].icon + ".png"; - img display website
+    }
