@@ -1,3 +1,13 @@
+npm i express body-parser ejs
+
+To install EJS npm i ejs
+Views Folder where ejs file is stored - file name file.ejs
+app.set("view engine","ejs"); - default line whenever we want to connect ejs file 
+
+views - filename.ejs outside of the folder only then it will render
+
+<%= dayej %> - ejs javascript file add it also generates output <%= JScode %>
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -34,3 +44,84 @@ app.get("/",function(req,res)
     else(day == 6)
         res.send("Day is Saturday");
 })
+
+Todo list 
+const express = require("express");
+const bodyParser = require("body-parser");
+
+var app = express();
+app.set("view engine", "ejs"); - for ejs 
+app.use(express.urlencoded({extended:true})); - for bodyParser
+
+var example = "working";
+app.get("/",function(req,res)
+{
+    res.render("list",{exej:example}); - list.ejs file connect establish
+});
+
+app.post("/",function(req,res)
+{
+    console.log(req.body.ele1); - we are storing it in server / displaying it in server
+});
+
+app.listen(8000,function()
+{
+    console.log("Server Started")
+});
+
+list.ejs file 
+<html lang="en">
+<head>
+    <title>Todo list</title>
+</head>
+<body>
+    <div class="box">
+        <h1>Todo list</h1>
+    </div>
+    <div class="box">
+        <li>Create Videos</li>
+        <li>Update changes on git</li>
+        <li><%= exej %></li>
+        <form action="/" method="POST">
+            <input type="text" name="ele1" placeholder="Enter the task"> - main file connect
+            <button type="submit">+</button>
+        </form>
+    </div>
+</body>
+</html>
+
+Todo list
+
+const express = require("express");
+const bodyParser = require("body-parser");
+
+var app = express();
+app.set("view engine", "ejs");
+app.use(express.urlencoded({extended:true}));
+
+var items = []; - we are using array
+
+var example = "working";
+app.get("/",function(req,res)
+{
+    res.render("list",{ejes:items});
+});
+
+app.post("/",function(req,res) - fetching the items added by the user
+{
+    var item = req.body.ele1;
+    items.push(item); - pussing that value to the array
+    res.redirect("/"); - redirecting user to the homepage / by default means HomePage
+});
+
+app.listen(8000,function()
+{
+    console.log("Server Started")
+});
+
+list.ejs
+
+        <% for(var i=0; i<ejes.length; i++) - for loop <%= %> symbol use
+        {%>
+            <p><%= ejes[i] %></p> - so that we can add items to our list in the form of paragraph
+        <%}%>
