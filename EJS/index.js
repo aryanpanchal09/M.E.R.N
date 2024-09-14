@@ -3,14 +3,14 @@ const bodyParser = require("body-parser");
 
 var app = express();
 app.set("view engine", "ejs");
+app.use(express.static('public'));
 app.use(express.urlencoded({extended:true}));
-
 var items = [];
-
 var example = "working";
+
 app.get("/",function(req,res)
 {
-    res.render("list",{ejes:items});
+    res.render("D:/Coding Languages/M.E.R.N/EJS/views/list",{ejes:items});
 });
 
 app.post("/",function(req,res)
@@ -20,7 +20,7 @@ app.post("/",function(req,res)
     res.redirect("/");
 });
 
-app.listen(8000,function()
+app.listen(5000,function()
 {
-    console.log("Server Started")
+    console.log("Server Started");
 });
