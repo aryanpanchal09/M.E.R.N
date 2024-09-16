@@ -125,3 +125,62 @@ list.ejs
         {%>
             <p><%= ejes[i] %></p> - so that we can add items to our list in the form of paragraph
         <%}%>
+
+var path = require('path');
+app.use(express.static(path.join(__dirname,'public')));
+
+LAYOUTS IN EJS 
+--------------
+We can implement the concept of DRY - Don't Repeat Yourself 
+
+If a certain code is repeating then we can use layout to use that code multiple time
+
+header.ejs - header code is repeating so we are going to link with all the particular webpage where we want it instead of rewriting it multiple times
+
+<%- include('header'); -%> - line of code use 
+
+Header.ejs
+----------
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Home Page
+        </title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h2>
+            Welcome to my website!!
+        </h2>
+
+We don't have to complete the code we will do it in the later part because if we want to edit something we will be able to do it there only 
+
+About.ejs
+---------
+<%- include('header'); -%>
+<p>
+    About us page!!
+</p>
+</body>
+</html>
+
+Home.ejs
+--------
+<%- include('header'); -%>
+<p>
+    This is the Home Page of Website !!
+</p>
+    </body>
+</html>
+
+That's how we connect diff diff webpages in EJS
+app.get("/",function(req,res)
+{
+    res.render("home");
+});
+
+app.get("/about",function(req,res)
+{
+    res.render("about");
+});
