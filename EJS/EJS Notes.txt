@@ -184,3 +184,21 @@ app.get("/about",function(req,res)
 {
     res.render("about");
 });
+
+MODULES 
+-------
+We can create our own Modules 
+
+Modules is used to create abstraction in our code 
+
+We jave create a seprate module and we can have multiple var in a module then we have to export the module in which the var is there and there is command to do that - module.exports
+
+function greeting(msg)
+{
+    console.log(msg);
+}
+
+module.exports = greeting; - Here we don't want to put the round brackets as we are not passing any value, We are calling the whole function 
+
+var app = require('./mod'); - getting the mod.js file
+app("Hi welcome to my program");
