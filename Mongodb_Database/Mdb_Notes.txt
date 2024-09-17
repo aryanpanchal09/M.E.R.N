@@ -1,0 +1,70 @@
+Database - Mechanism & Storage System to handle the data on the Internet
+
+To Permenantly Store data of the User 
+
+NoSQL vs SQL Database
+---------------------
+
+SQL 
+---
+Traditional method store data in Tables
+Not Scalable and takes lots of Space
+Not Dynamic 
+
+NoSQL
+-----
+JSON - Documents - Uses Latest Format to Store Data
+Easily Compressed and takes less Space 
+Dynamic - Modify Data 
+
+NoSQL - MongoDb Database 
+------------------------
+mongodb.com - community version download - msi file - set path 
+
+mongod - Server Started
+mongod --version 
+
+mongosh 
+show dbs
+use database name 
+
+CRUD Operations in MongoDb
+--------------------------
+
+Create Operation 
+----------------
+use shop - to perform Create
+db.items.insertOne({name: "Aryan", age: 23}) - items - collections
+db.items.insertOne({name: "Krishna", age: 24})
+    acknowledged - true, insertedId : ObjectId("")
+
+show collections
+
+Read Operation
+--------------
+db.items.find() - to perform read 
+
+db.items.insertOne({name: "Krishna", age: 24})
+
+db.items.find({name:"Aryan"})
+
+Update Operation 
+----------------
+It modify existing documents in a collection 
+
+db.collection.updateOne()
+db.collection.updateMany()
+db.collection.replaceOne()
+
+first argument is condition, $set:{"want to change"}
+
+db.items.updateOne({name:"Aryan"},{$set:{name:"Don't Believe Everything you think"}})
+
+Delete Operation
+----------------
+
+db.collection.deleteOne()
+db.collection.deleteMany()
+
+db.items.deleteOne({name: "Don't Believe Everything you think"})
+db.items.deleteOne({age: 24})
