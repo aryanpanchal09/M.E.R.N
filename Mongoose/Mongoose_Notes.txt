@@ -1,0 +1,124 @@
+It's use to establish connection with Mongodb 
+
+npm init 
+npm i mongoose 
+
+. mongoose.connect("mongodb://localhost:27017/shop") - to establish connection mongoose.connect function ("url pass")
+. Schema create 
+. Variable & Model create - 2 arguments pass
+
+const item = mongoose.model("items",fruitsSchema); - Model 
+
+Data Item 
+---------
+const element = new item({
+    name: "Apple";
+    rating: 10
+});
+
+if else try insert items which is no further supported that's why we used async/await
+
+// Using async/await for insertMany
+async function saveItems() {
+    try {
+        await Item.insertMany([element1, element2]);
+        console.log("Inserted");
+        
+        // Saving the apple item
+        const savedApple = await element.save();
+        console.log("element saved:", savedApple);
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+Retrieve Data from the Database 
+-------------------------------
+item.find(function(err,data){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log(data);
+    }
+});
+
+async function retrieveItems() {
+    try {
+        const items = await Item.find({}, 'name');
+        console.log("Retrieved items:", items);
+        
+    } catch (err) {
+        console.log("Error retrieving items:", err);
+    }
+}
+
+Validation in Mongoose 
+----------------------
+const fruitsSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'Enter name of fruit'] - name required
+    },
+    rating: {
+        type: Number, - rating should be between 1 to 10 validation 
+        min: 1,
+        max: 10
+    }
+});
+
+Delete Data from Mongoose
+-------------------------
+item.deleteOne({name:"WaterMelon"},function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log("Deleted!");
+    }
+}) - Course Code 
+
+But it won't work we used 
+
+item.deleteOne({ name: "WaterMelon" })
+    .then(result => {
+        if (result.deletedCount > 0) {
+            console.log("Deleted!");
+        } else {
+            console.log("No item found with that name.");
+        }
+    })
+    .catch(err => {
+        console.error("Error deleting item:", err);
+    });
+
+Update Data in Mongoose 
+-----------------------
+
+const item = mongoose.model("items", fruitsSchema);
+item.updateOne({_id:""},{rating: 6},function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log("Success!!");
+    }
+});
+
+Again the above code didn't work so we try a different one 
+
+// Update a document by _id
+const fruitIdToUpdate = "66ea390d1281b0cf8122b64e"; // Replace with the actual _id of the document you want to update
+
+item.updateOne({ _id: fruitIdToUpdate }, { rating: 6 })
+    .then(result => {
+        if (result.nModified > 0) {
+            console.log("Success!! Rating updated to 6.");
+        } else {
+            console.log("No item found with that ID or rating was already 6.");
+        }
+    })
+    .catch(err => {
+        console.error("Error updating item:", err);
+    });

@@ -68,3 +68,33 @@ db.collection.deleteMany()
 
 db.items.deleteOne({name: "Don't Believe Everything you think"})
 db.items.deleteOne({age: 24})
+
+Relationship in MongoDb
+-----------------------
+
+One to Many Relationship Example 
+
+db.items.insertOne(
+{
+    id: 100,
+    name: "Eraser",
+    price: 100,
+    reviews: [
+        {
+            authorname: "Harish",
+            age: 23,
+            rating: 3
+        },
+        {
+            authorname: "Hiten",
+            age: 23,
+            rating: 4
+        },
+        {
+            authorname: "Rahul",
+            age: 22,
+            rating: 4
+        }
+    ]
+}
+)
