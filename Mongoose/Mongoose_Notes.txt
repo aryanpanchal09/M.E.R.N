@@ -122,3 +122,41 @@ item.updateOne({ _id: fruitIdToUpdate }, { rating: 6 })
     .catch(err => {
         console.error("Error updating item:", err);
     });
+
+PASSING A DOCUMENT INTO ANOTHER DOCUMENT 
+----------------------------------------
+
+Create 2 Schema 
+Connect Schema by passing value to each other to establish relationship among them
+const fruitSchema = new mongoose.Schema 
+({
+    name: String,
+    rating: Number
+});
+
+const personSchema = new mongoose.Schema 
+({
+    name: String,
+    age: Number,
+    fav: fruitSchema
+});
+
+Here we create 2 schema and passed the fruitSchema value to personSchema 
+
+const item = mongoose.model("items", fruitSchema);
+const per = mongoose.model("favperson", personSchema);
+
+const grapes = new item
+({
+    name: "Cherry",
+    rating: 9
+});
+grapes.save();
+
+const person1 = new per 
+({
+    name: "amy",
+    age: 21,
+    fav: grapes
+});
+person1.save();

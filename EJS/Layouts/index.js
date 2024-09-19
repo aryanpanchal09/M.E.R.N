@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.get("/",function(req,res)
 {
-    res.render("home");
+    res.render("D:/Coding_Languages/M.E.R.N/EJS/Layouts/views/home.ejs");
 });
 
 app.get("/about",function(req,res)
