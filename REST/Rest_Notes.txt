@@ -1,0 +1,18 @@
+REST - REpresentational State Transfer
+--------------------------------------
+It's used to create API 
+API - Application Programming Interface 
+
+HTTP Verbs 
+1. GET
+2. POST
+3. PUT
+4. DELETE
+5. PATCH 
+
+All these 5 request are necessary to implement to create our own API 
+
+Install Robo3T
+--------------
+We can interact with our Mongodb Database (GUI Interface)
+

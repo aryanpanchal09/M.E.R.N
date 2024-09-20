@@ -1,3 +1,4 @@
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +10,53 @@
     <div class="box">
         <h1>Todo list</h1>
     </div>
-    <div class="box">
-        <% for(var i=0; i<dayej.length; i++)
-        {%>
-            <div class="item">
-                <input type="checkbox">
-                <p><%= dayej[i].name %></p>
-            </div>          
-        <%}%>
 
-        <form action="/" method="POST">
-            <input type="text" name="ele1" placeholder="Enter the task">
+    <div class="box">
+        <% dayej.forEach(function(items)
+        { %>
+            <form action="/delete" method="POST">
+                <div class="item">
+                    <input type="checkbox" name="checkbox1" value="<%= items._id %>" onchange="this.form.submit()">
+                    <p><%=items.name%></p>
+                <div>
+            </form>
+        <% }) %>
+        <form class="item" action="/" method="POST">
+            <input type="text" name="ele1" placeholder="Enter Item">
+            <button type="submit">+</button>
+        </form>
+    </div>
+</body>
+</html>
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>Todo List</h1>
+    </div>
+    
+    <div class="box">
+        <% dayej.forEach(function(items) { %>
+            <form action="/delete" method="POST" style="display: inline;">
+                <div class="item">
+                    <input type="checkbox" name="checkbox1" value="<%= items._id %>" onchange="this.form.submit()">
+                    <p><%= items.name %></p>
+                </div>
+            </form>
+        <% }) %>
+
+        <form class="item" action="/" method="POST" style="display: inline;">
+            <input type="text" name="ele1" placeholder="Enter Item" required>
             <button type="submit">+</button>
         </form>
     </div>

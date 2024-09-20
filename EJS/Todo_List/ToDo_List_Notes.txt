@@ -1,0 +1,23 @@
+Conecting the app with Mongodb 
+------------------------------
+app.post("/", function(req,res)
+{
+    const itemName = req.body.ele1; - Storing the item in database whenever the user click on + button 
+    const todo4 = new item
+    ({
+        name: itemName
+    });
+    todo4.save();
+    res.redirect("/");
+});
+
+Previous loop 
+-------------
+<% for(var i=0; i<dayej.length; i++)
+{%>
+    <div class="item">
+        <input type="checkbox">
+        <p><%= dayej[i].name %></p>
+    </div>          
+<%}%>
+
