@@ -16,3 +16,45 @@ Install Robo3T
 --------------
 We can interact with our Mongodb Database (GUI Interface)
 
+const Article = mongoose.model("items", articleScheme); - (collection, Schema)
+
+Article.find(function(err,found)) - (error object, Variable data store database)
+
+GET Method - Robo3T
+
+Post Method - Postman
+
+POSTMAN
+-------
+
+To Insert :
+. Url 
+. name 
+. title 
+
+app.post("/articles",function(req,res)
+{
+    const element1 = new Article
+    ({
+        name: req.body.name, - we can insert it directly into our database without creating any form 
+        title: req.body.title - POSTMAN app help 
+    });
+    element1.save();
+});
+
+To delete 
+---------
+Article.deletemany - Model name, Function name
+
+app.delete("/articles", async (req, res) => {
+    try {
+        const result = await Article.deleteMany({});
+        res.send(`Deleted ${result.deletedCount} articles`);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+POSTMAN - body - del - req send
+
+localhost:8000/articles/Aws - user want to see Aws then Aws should be store in form of variable

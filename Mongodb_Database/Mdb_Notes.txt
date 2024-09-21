@@ -38,6 +38,8 @@ db.items.insertOne({name: "Aryan", age: 23}) - items - collections
 db.items.insertOne({name: "Krishna", age: 24})
     acknowledged - true, insertedId : ObjectId("")
 
+db.items.insertOne({name: "Jquery", title: "JQuery made it very simple"})
+
 show collections
 
 Read Operation
