@@ -58,3 +58,40 @@ app.delete("/articles", async (req, res) => {
 POSTMAN - body - del - req send
 
 localhost:8000/articles/Aws - user want to see Aws then Aws should be store in form of variable
+
+Article.findOne({title: req.params.articleTitle}) - Value entered by the user inside the url or param matches with the title then only the article is been shown 
+
+To get specific record from a database 
+
+PUT Method 
+----------
+Used to update the complete document 
+
+Ex - Name & desc change in a document 
+
+Using the Postman - Put - Body - s-www-form-encoded - key value description 
+
+app.put("/articles/:articleTitle",async (req, res) => {
+    try {
+        const result = await Article.updateMany(
+            { title: req.params.articleTitle },
+            { title: req.body.title, desc: req.body.desc },
+            { overwrite: true }
+        );
+
+        if (result.modifiedCount > 0) {
+            res.send("Updated");
+        } else {
+            res.status(404).send("Article not found");
+        }
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Error updating article");
+    }
+}); -- code 
+
+PATCH METHOD 
+------------
+It's used to update a particular record in a document it's used becuase PUT will change the whole document
+
+It didn't work further modification required as the code get very bigger with other methods that may be one of the reason 

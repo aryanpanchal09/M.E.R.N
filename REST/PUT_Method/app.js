@@ -45,14 +45,14 @@ app.post("/articles",function(req,res)
     element1.save();
 });
 
-// app.delete("/articles", async (req, res) => {
-//     try {
-//         const result = await Article.deleteMany({});
-//         res.send(`Deleted ${result.deletedCount} articles`);
-//     } catch (err) {
-//         res.status(500).send(err);
-//     }
-// });
+app.delete("/articles", async (req, res) => {
+    try {
+        const result = await Article.deleteMany({});
+        res.send(`Deleted ${result.deletedCount} articles`);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
 
 // app.get("/articles/:articleTitle",function(req,res)
 // {
@@ -105,32 +105,19 @@ app.get("/articles/:articleTitle",async (req, res) => {
 //     );
 // });
 
-// app.put("/articles/:articleTitle",async (req, res) => {
-//     try {
-//         const result = await Article.updateMany(
-//             { title: req.params.articleTitle },
-//             { title: req.body.title, desc: req.body.desc },
-//             { overwrite: true }
-//         );
-
-//         if (result.modifiedCount > 0) {
-//             res.send("Updated");
-//         } else {
-//             res.status(404).send("Article not found");
-//         }
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).send("Error updating article");
-//     }
-// });
-
-app.patch("/articles/:articleTitle", async (req, res) => {
+app.put("/articles/:articleTitle",async (req, res) => {
     try {
-        await Article.updateOne(
+        const result = await Article.updateMany(
             { title: req.params.articleTitle },
-            { $set: { desc: req.body.desc } }
+            { title: req.body.title, desc: req.body.desc },
+            { overwrite: true }
         );
-        res.send("Success");
+
+        if (result.modifiedCount > 0) {
+            res.send("Updated");
+        } else {
+            res.status(404).send("Article not found");
+        }
     } catch (err) {
         console.log(err);
         res.status(500).send("Error updating article");
@@ -138,7 +125,7 @@ app.patch("/articles/:articleTitle", async (req, res) => {
 });
 
 
-app.listen(3000, function()
+app.listen(8000, function()
 {
-    console.log("Server started at port 3000");
+    console.log("Server started at port 8000");
 });
