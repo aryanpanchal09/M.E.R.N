@@ -1,3 +1,5 @@
 Authentication - Process of identifying an individual, usually based on a username, password, and some type of additional verification 
 
 Whisper App Project 
+
+Schema basically tells what type of data we are going to store in our mongodb database
