@@ -95,3 +95,16 @@ PATCH METHOD
 It's used to update a particular record in a document it's used becuase PUT will change the whole document
 
 It didn't work further modification required as the code get very bigger with other methods that may be one of the reason 
+
+DELETE METHOD 
+-------------
+To delete a specific query 
+
+app.delete("/articles/:articleTitle", (req, res) => {
+    Article.deleteOne({ title: req.params.articleTitle })
+        .then(() => res.status(204).send())
+        .catch(err => {
+            console.error(err);
+            res.status(500).send("Internal Server Error");
+        });
+});
