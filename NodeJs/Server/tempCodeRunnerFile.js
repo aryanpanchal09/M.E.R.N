@@ -1,1 +1,0 @@
-res.sendFile("D:\Coding Languages\M.E.R.N\NodeJs\Server\index.html");

@@ -3,3 +3,47 @@ Authentication - Process of identifying an individual, usually based on a userna
 Whisper App Project 
 
 Schema basically tells what type of data we are going to store in our mongodb database
+
+Encrypt-Password 
+----------------
+
+npm i moongoose-encryption
+
+const encrypt = require('mongoose-encryption');
+
+MD5 - Password encrypt 
+
+We have to create a key then using the schema we are going to encrypt the password
+
+
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/secrets");
+const trySchema = new mongoose.Schema({
+    email: String,
+    password: String
+});
+
+const secret = "thisislittlesecret";
+trySchema.plugin(encrypt,{secret:secret,encryptedFields:["password"]});
+
+Password is encrypted
+{
+    "_id" : ObjectId("66f224a60416bb015d1a36d9"),
+    "email" : "aryantech23@gmail.com",
+    "_ct" : BinData(0, "YUDZ0CG8ED8RCnSqR+qHmD1Ud4PFvYKltzkvck2Q1lJcZENPDp3Z2ClPHFdSRHycuQ=="),
+    "_ac" : BinData(0, "YRNNC9IadIWlV1BvuHtFqdyoLZ7pfivJz8RpxXozutrwWyJfaWQiLCJfY3QiXQ=="),
+    "__v" : NumberInt(0),
+    "password" : ""
+}
+
+COOKIES_SESSIONS
+----------------
+Cookies - A small text file that a Web server stores on your Computer
+Stored on client side 
+Only store Strings
+Set to a long lifespan 
+
+Session - Server-side storage of information that stores information on the user's interaction with the website or web application
+Stored on server side 
+Store Objects
+User close their browser, they lost the session

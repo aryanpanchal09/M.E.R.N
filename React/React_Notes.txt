@@ -1,0 +1,19 @@
+React (JS Library) - The library for web and native user interfaces
+Used for User interface
+Open Source Library
+Not a framework
+Has a rich ecosystem 
+
+Created and maintain by Facebook 
+
+CodeSandBox 
+-----------
+React Editor & Sign in Github
+
+Class Component
+---------------
+This Component are simple classes which are made up of multiple functions which add functionality to the application 
+
+All the class based component are child classes of Component Class React JS
+
+The Class must implement render member function which returns the react component to render which is similar to a return value of functional Component 

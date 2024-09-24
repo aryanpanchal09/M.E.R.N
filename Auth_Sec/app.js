@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const encrypt = require('mongoose-encryption');
 const ejs = require("ejs");
 const path = require('path');
 
@@ -14,6 +15,9 @@ const trySchema = new mongoose.Schema({
     email: String,
     password: String
 });
+
+const secret = "thisislittlesecret.";
+trySchema.plugin(encrypt,{secret:secret,encryptedFields:["password"]});
 
 const item = mongoose.model("second",trySchema);
 
