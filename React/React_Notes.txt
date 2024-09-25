@@ -17,3 +17,148 @@ This Component are simple classes which are made up of multiple functions which 
 All the class based component are child classes of Component Class React JS
 
 The Class must implement render member function which returns the react component to render which is similar to a return value of functional Component 
+
+JSX
+---
+JSX - JavaScriptXML It allows us to write html element in JS and place them inside the dom without any create element or apend child which we used to write inside our javascript 
+
+JSX converts the html tags into react elements
+
+We don't require to use JSX but JSX makes it easier to write React Application. So JSX is not an compulsion 
+
+import "./styles.css";
+const name = "Rohan";
+let a = 15;
+let msg = "";
+if(a>10)
+  {
+    msg = "Hello"
+  }
+else 
+{
+  msg = "Bye"
+}
+
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>{msg}</h2>
+    </div>
+  );
+}
+
+Introduction to JSX 
+-------------------
+import "./styles.css";
+import React from "react";
+function App() {
+  return(
+    <div>
+    <h1>Hello World</h1>
+    <ul>
+      <li>Apples</li>
+      <li>Mangoes</li>
+      <li>Bananas</li>
+    </ul>
+  </div>
+  )
+}
+export default App;
+
+Introduction to JSX2
+--------------------
+import "./styles.css";
+import React from "react";
+const name = "Rohit";
+const year = "2024";
+
+function App() {
+  return (
+    <div>
+      <p>Hello {name}</p>
+      <p>Current Year: {year}</p>
+    </div>
+  );
+}
+export default App;
+
+Inline Style for react elements 
+-------------------------------
+
+Style element value must be a JS object 
+In JSX JS expression are written inside the {} braces 
+Since JS object also use {} braces the styling is written inside 2 sets of {} braces 
+
+import React from "react";
+let obj = {
+  color: "red",
+  backgroundColor: "yellow",
+};
+let obj1 = {
+  fontSize: '50px',
+  fontFamily: 'cooper'
+};
+function App() {
+  return (
+    <div>
+      {/* <h1 style="color:red">Hello World</h1> */}
+      {/* <h1 style={{ color: "red", backgroundColor: "yellow" }}>Hello World</h1> */}
+      {/* <h1 style={obj}>Hello World</h1> */}
+      <h1 style={{...obj, ...obj1}}>Hello World</h1>
+    </div>
+  );
+}
+export default App;
+
+React Components
+----------------
+App.js 
+
+import React from "react";
+import Header from "./Header";
+import List from "./List";
+function App() {
+  return (
+    <div>
+      <Header />
+      <List />
+    </div>
+  );
+}
+export default App;
+
+Header.js 
+
+import React from "react";
+function Header() {
+  return (
+    <div>
+      <h1>Hello World</h1>
+    </div>
+  );
+}
+export default Header;
+
+List.js 
+
+import React from "react";
+function List() {
+  return (
+    <div>
+      <ul>
+        <li>Apples</li>
+        <li>Mangoes</li>
+        <li>Bananas</li>
+      </ul>
+    </div>
+  );
+}
+
+export default List;
+
+
+React 
+-----
+npm install -g create-react-app (-g globally install)
+npx create-react-app my-app
