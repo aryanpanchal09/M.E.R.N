@@ -162,3 +162,4 @@ React
 -----
 npm install -g create-react-app (-g globally install)
 npx create-react-app my-app
+
