@@ -163,3 +163,68 @@ React
 npm install -g create-react-app (-g globally install)
 npx create-react-app my-app
 
+Props 
+-----
+
+Properties - these are the argument which are passed into react component
+
+Props are passed to components via html arrtibutes 
+
+And to send props into an component we use the same syntax as html attributes
+
+Basic Purpose - Helps us to make our program dynamic
+
+Mapping_Function
+----------------
+The map() function is essential for rendering dynamic lists in React applications
+
+App File 
+========
+function createHello(info){
+    return(
+        <div><Hello name={info.name} number={info.number} /></div>
+    )
+}
+
+function App() {
+    return <div>
+        {info.map(createHello)}
+    </div>;
+}
+
+info file 
+=========
+const info = [
+    {
+        id: 1,
+        name: "Rohan",
+        number: 9313369904
+    },
+
+Hello file
+==========
+function Hello(props) {
+  return (
+    <div>
+      <h1> Hello {props.name} </h1>
+      <h2> Age {props.age} </h2>
+    </div>
+  );
+}
+
+
+Arrow Function 
+--------------
+Arrow function are used to reduce the size of a function constant
+
+function App() {
+    return <div>
+        <h1>Hi everyone</h1>
+    </div>;
+}
+
+the code gets shorter if the function has only one statement
+
+const App = () => <h1>Hi everyone</h1>
+
+We can also create Arrow Function with Parameters
