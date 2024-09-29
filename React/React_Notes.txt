@@ -228,3 +228,51 @@ the code gets shorter if the function has only one statement
 const App = () => <h1>Hi everyone</h1>
 
 We can also create Arrow Function with Parameters
+
+Conditional Rndering
+---------------------
+Conditional Rendering is used to allows developers to create responsive and engaging user interfaces
+
+It allows you to display different content based on certain conditions or states
+
+It works as same as in javascript
+
+. If else
+. Logical AND(&&) Operator 
+. Ternery Operator 
+
+If else 
+```````
+function App() {
+    const name = "Aryan";
+    
+    if (name === "Aryan") {
+        return <Component1 />;
+    } else {
+        return <Component2 />;
+    }
+}
+
+Logical && Operator 
+```````````````````
+function App() {
+    const name = "Aryan";
+    const age = "23"
+    return(
+        <div>
+            {age>=18 ? <h1>You are eligible</h1>: <h1>You are not eligible</h1>} : is used for else statement
+            {name == "Rohan" && <h1>Hi Rohan</h1>}
+        </div>
+    )
+}
+
+List Rendering 
+--------------
+List is very useful when it comes to developing the ui of any website 
+
+Mainly used for displaying things in the website 
+For ex : 
+. List of Products 
+. List of Names
+
+Executed using for loop and while loop In JS Map Array method is preferable
