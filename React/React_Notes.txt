@@ -174,6 +174,8 @@ And to send props into an component we use the same syntax as html attributes
 
 Basic Purpose - Helps us to make our program dynamic
 
+Props are immutable
+
 Mapping_Function
 ----------------
 The map() function is essential for rendering dynamic lists in React applications
@@ -276,3 +278,47 @@ For ex :
 . List of Names
 
 Executed using for loop and while loop In JS Map Array method is preferable
+
+State React 
+-----------
+State is built in react object that's used to collect data or information about the component 
+
+Hence Props are immutable but we want to update our data we use the concept of State
+
+To create or use the State we have to create a constructor method
+
+useState Hook
+`````````````
+Hooks allows us to use the State and other react features without writing a class
+
+Hooks allow the functional component to have the access towards a state although, Hooks generally replace class components but there are no plans to remove the classes from react 
+
+Hooks are basically additional features in react which mean it doesn't contain any breaking changes 
+
+It doesn't changes our react knowledge of react concepts that we have already learned
+
+Use - If you write a function component and then you want to add some state to it 
+Previously we did that by converting it to a class but now we can do it by using a hook inside the existing functional component 
+
+Hook State is the new way to declaring a new state inside our react app 
+Hook uses the use state functional component for setting and retrieving our state 
+
+useEffect Hook
+``````````````
+Effect refers to a function programming term that's called a side Effect
+
+Examples :
+Fetching data from the API 
+Directly updating our Dom 
+
+The useEffect Hook allows us to update our side effect inside our functional component 
+
+useEffect runs after first render and also after every render update 
+
+It accepts two argument and the second argument is optional 
+First argument is always a function 
+Second argument is always a dependency
+
+The function inside a useEffect will run after every render is commited 
+The second argument after the useEffect will use the array of values which depends on other Effect
+We can call the useEffect hook as many times as we want 
