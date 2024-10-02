@@ -322,3 +322,22 @@ Second argument is always a dependency
 The function inside a useEffect will run after every render is commited 
 The second argument after the useEffect will use the array of values which depends on other Effect
 We can call the useEffect hook as many times as we want 
+
+useContext_Hook
+```````````````
+Crop Drilling 
+A lots of file where created to transfer Component C to Component A 
+
+To avoid this we use Context_Hook 
+In less amount of Code we are directly able to transfer the props 
+Directly from Component C to App.js file 
+
+
+Event Handling 
+--------------
+Button - Event happening (Some line of Code is executed which is Event) and the whole event is known as Event Handling 
+
+Events are action or the occurences that happen in the system in our programming which the system tell you about so the code can react to them 
+Most often the User of the website only generated this event 
+
+To pass an argument in Event Handler we use an arrow function 

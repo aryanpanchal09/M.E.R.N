@@ -1,6 +1,6 @@
 import React from 'react';
 import CompB from './CompB';
-function CompB() {
+function CompA() {
     return (
         <div>
             <CompB/>
