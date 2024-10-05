@@ -341,3 +341,28 @@ Events are action or the occurences that happen in the system in our programming
 Most often the User of the website only generated this event 
 
 To pass an argument in Event Handler we use an arrow function 
+
+Form Handling 
+-------------
+Integral Part of Modern Web Application
+
+It allows the users to interact with the Application as well as to gather information from the user 
+
+Adding User, Checking the Authentication of the User etc 
+
+Handling forms is about how you handle the data when it changes the value or it gets submitted 
+
+Spread Operator
+---------------
+It's used to compile arrays 
+
+Lazy Loading 
+------------
+React application is a combination of multiple components 
+
+Each Component can contain either small or large amount of data 
+
+The concept of Lazy Loading applies to the component containing large amount of data 
+
+Component having small amount of data should be displayed first and till the time Component 2 is loading a Loading message should be displayed to the user and after that the component 2 should be displayed 
+
