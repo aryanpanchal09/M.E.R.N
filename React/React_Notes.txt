@@ -366,3 +366,24 @@ The concept of Lazy Loading applies to the component containing large amount of 
 
 Component having small amount of data should be displayed first and till the time Component 2 is loading a Loading message should be displayed to the user and after that the component 2 should be displayed 
 
+When we are using Lazy Loading Concept we had to use it dynamically 
+
+Lazy Loading is a design pattern for optimizing web and mobile apps 
+
+The Concpet of lazy loading is simple
+  Initialize objects that are critical to the user interface first and quietly render noncritical items latter
+
+As the name suggests lazy loading is a optimization technique in which loading of an item is delayed until it is required, saving bandwidth and precious computing resources
+
+How to use Lazy Loading 
+```````````````````````
+React has two features that make it very easy to apply code-splitting and lazy loading to React components:
+React.lazy() and React.Suspense
+
+The React.Lazy() function allows you to render a dynamic import as a normal component 
+
+React.Suspense: A Component built with React.Lazy() is only loaded when it is required to be displayed 
+
+Keeper App Project 3 
+--------------------
+Achieve : Users can add a new note in the form of an array and also being able to delete that 
